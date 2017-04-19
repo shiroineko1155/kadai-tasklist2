@@ -26,7 +26,7 @@
                         <li>{!! link_to_route('signup.get', 'Signup') !!}</li>
                         <li>{!! link_to_route('login.get', 'Login') !!}</li>
                     @endif
-                    <li>{!! link_to_route('tasklists.create', '新規タスクの投稿') !!}</li>
+                    
                 </ul>
             </div>
         </div>

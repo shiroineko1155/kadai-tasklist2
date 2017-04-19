@@ -19,7 +19,7 @@ class WelcomeController extends Controller
         $data = [];
         if (\Auth::check()) {
             $user = \Auth::user();
-            $microposts = $user->tasklists()->orderBy('created_at', 'desc')->paginate(10);
+            $tasklists = $user->tasklists()->orderBy('created_at', 'desc')->paginate(10);
 
             $data = [
                 'user' => $user,
@@ -28,7 +28,7 @@ class WelcomeController extends Controller
         }
         return view('welcome', $data);
     }
-    }
+    
 
     /**
      * Show the form for creating a new resource.

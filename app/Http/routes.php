@@ -30,6 +30,3 @@ Route::group(['middleware' => 'auth'], function () {
      Route::resource('tasklists', 'tasklistController', ['only' => ['store', 'destroy']]);
 });
 
-Route::get('/', 'tasklistController@index');
-
-Route::resource('tasklists', 'tasklistController');
