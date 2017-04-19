@@ -49,6 +49,11 @@ class tasklistController extends Controller
         $tasklist->status = $request->status;    // 追加
         $tasklist->content = $request->content;
         $tasklist->save();
+        
+         $request->user()->tasklists()->create([
+            'content' => $request->content,
+        ]);
+        
         return redirect('/');
     }
     /**
@@ -106,7 +111,10 @@ class tasklistController extends Controller
     public function destroy($id)
     {
          $tasklist = tasklist::find($id);
+         
+         if (\Auth::user()->id === $tasklist->user_id) {
         $tasklist->delete();
-        return redirect('/');
+         }
+        return redirect()->back();
     }
 }

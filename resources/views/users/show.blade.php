@@ -14,10 +14,14 @@
         </aside>
         <div class="col-xs-8">
             <ul class="nav nav-tabs nav-justified">
-                <li><a href="#">Microposts</a></li>
+                <li role="presentation" class="{{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', ['id' => $user->id]) }}">Tasklists <span class="badge">{{ $count_tasklists }}</span></a></li>
+                <li><a href="#">Tasklists</a></li>
                 <li><a href="#">Followings</a></li>
                 <li><a href="#">Followers</a></li>
             </ul>
+            @if (count($tasklists) > 0)
+                @include('tasklists.tasklists', ['tasklists' => $tasklists])
+            @endif
         </div>
     </div>
 @endsection
