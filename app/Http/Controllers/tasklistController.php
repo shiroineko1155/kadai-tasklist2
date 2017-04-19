@@ -12,6 +12,7 @@ class tasklistController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    
     {
         $tasklists = tasklist::all();
         return view('tasklists.index', [
