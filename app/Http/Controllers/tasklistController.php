@@ -40,7 +40,7 @@ class tasklistController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            
+
             'status' => 'required|max:10',
             'content' => 'required|max:255',
             ]);
@@ -52,6 +52,9 @@ class tasklistController extends Controller
         
          $request->user()->tasklists()->create([
             'content' => $request->content,
+            ]);
+         $request->user()->tasklists()->create([
+            'status' => $request->status,    
         ]);
         
         return redirect('/');

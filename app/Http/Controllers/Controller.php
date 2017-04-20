@@ -15,7 +15,7 @@ abstract class Controller extends BaseController
         $count_tasklists = $user->tasklists()->count();
         
         return [
-            'count_tasklists' => $count_taslists,
+            'count_tasklists' => $count_tasklists,
         ];
     }
 }
